@@ -29,6 +29,12 @@
     },
     {
       "path": "./apps/plugin-service"
+    },
+    {
+      "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/utils"
     }
   ]
 }

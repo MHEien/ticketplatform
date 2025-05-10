@@ -1,4 +1,4 @@
-import './global.css';
+import { } from '@eventsplatform/ui'
 
 export const metadata = {
   title: 'Welcome to admin',
