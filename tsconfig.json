@@ -17,6 +17,18 @@
     },
     {
       "path": "./apps/server"
+    },
+    {
+      "path": "./apps/admin-e2e"
+    },
+    {
+      "path": "./apps/admin"
+    },
+    {
+      "path": "./apps/plugin-service-e2e"
+    },
+    {
+      "path": "./apps/plugin-service"
     }
   ]
 }

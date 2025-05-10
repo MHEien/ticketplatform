@@ -1,0 +1,249 @@
+## NX Specific Guidelines
+
+1. **NX Console Integration**
+   - Utilize NX Console through the MCP server connection for code generation
+   - Prefer NX generators for creating new components, modules, and services
+   - Use NX commands for building, testing, and linting
+
+2. **NX Workspace Operations**
+   - Use NX generators when creating new libraries in the packages directory
+   - Leverage NX dependency graph for understanding code relationships
+   - Follow NX best practices for code organization and project references
+
+3. **NX Generators**
+   - When creating new components or features, use appropriate NX generators
+   - Document which generator was used in the corresponding documentation
+   - Extend generators with custom options when needed
+
+4. **NX Build and Testing**
+   - Use NX commands for affected builds and tests
+   - Leverage NX caching for improved development performance
+   - Ensure CI/CD pipelines use NX for efficient builds# Cursor Development Rules for Ticket Sales Platform
+
+## Project Structure Guidelines
+
+1. **NX Monorepo Navigation**
+   - Always respect the NX monorepo structure
+   - Place new code in the appropriate app or packages directory
+   - Follow the established pattern for naming and file organization
+
+2. **Apps and Libraries**
+   - `apps/server`: NestJS backend API
+   - `apps/plugin-service`: NestJS plugin service
+   - `apps/admin`: Next.js admin dashboard
+   - `apps/web`: Next.js customer-facing storefront
+   - `packages/*`: Shared libraries (see detailed structure in docs)
+
+3. **Code Organization**
+   - One feature/module per folder
+   - Index files for public API exports
+   - Keep files focused on a single responsibility
+   - Maximum file size: 300 lines (suggest splitting if larger)
+
+## Documentation Requirements
+
+1. **Auto-Documentation**
+   - When creating any significant component, service, or API endpoint, create or update a corresponding markdown file in `/docs`
+   - Document structure: `/docs/[app-name]/[feature-name]/[component-or-service-name].md`
+
+2. **Required Documentation Elements**
+   - Purpose and description
+   - Usage examples
+   - API reference (props, methods, return values)
+   - Dependencies and related components
+   - Potential extension points
+
+3. **API Documentation**
+   - Generate OpenAPI documentation for all endpoints
+   - Include request/response examples
+   - Document validation rules and error responses
+
+4. **Component Documentation**
+   - Create Storybook stories for UI components
+   - Document available props and usage examples
+
+## Coding Standards
+
+1. **TypeScript**
+   - Strict typing for all code
+   - No `any` types except in specific documented cases
+   - Use interfaces for object shapes
+   - Export types and interfaces that might be reused
+
+2. **React & Next.js**
+   - Use functional components with hooks
+   - Implement React Server Components when appropriate
+   - Leverage Next.js App Router features
+   - Keep client components lightweight
+   - Extract business logic to custom hooks
+
+3. **NestJS**
+   - Follow module organization
+   - Use decorators consistently
+   - Leverage dependency injection
+   - Follow REST API best practices
+   - Use DTOs for request/response validation
+
+4. **Testing**
+   - Write tests for all significant functionality
+   - Follow AAA pattern (Arrange-Act-Assert)
+   - Use testing libraries provided in the NX workspace
+
+## Database & Data Handling
+
+1. **PostgreSQL**
+   - Use repository pattern
+   - Write migration files for schema changes
+   - Include up/down migration logic
+   - Use appropriate indexes for query performance
+
+2. **Multi-tenancy**
+   - Always include tenant context in database operations
+   - Use row-level security patterns
+   - Test multi-tenant scenarios
+
+## Plugin System Development
+
+1. **Extension Points**
+   - Document all extension points in `/docs/plugin-system/extension-points/`
+   - Create type definitions for plugin interfaces
+   - Version extension point APIs
+
+2. **Plugin Development**
+   - Follow the plugin development guidelines
+   - Create example plugins in `/examples/plugins/`
+   - Document plugin lifecycle hooks
+
+## State Management
+
+1. **Frontend State**
+   - Use React Query for server state
+   - Use Context API for global UI state
+   - Use local state for component-specific concerns
+   - Document state management patterns
+
+2. **Backend State**
+   - Use appropriate caching strategies
+   - Document state transitions and lifecycles
+
+## UI/UX Guidelines
+
+1. **Component Library**
+   - Reuse components from `/packages/ui/components`
+   - Follow design system guidelines
+   - Use Tailwind utility classes consistently
+   - Document new component patterns
+
+2. **Animations**
+   - Use Framer Motion for animations
+   - Keep animations subtle and purposeful
+   - Ensure animations can be disabled for accessibility
+
+## Security Practices
+
+1. **Authentication & Authorization**
+   - Follow established authentication patterns
+   - Implement proper authorization checks
+   - Document security considerations
+
+2. **Data Validation**
+   - Validate all inputs on both client and server
+   - Use zod or class-validator for validation
+   - Document validation rules
+
+## Performance Considerations
+
+1. **Frontend Performance**
+   - Optimize bundle sizes
+   - Implement appropriate code splitting
+   - Consider server-side rendering strategies
+   - Document performance optimizations
+
+2. **Backend Performance**
+   - Use appropriate database indexing
+   - Implement caching where beneficial
+   - Document performance considerations
+
+## Integration & APIs
+
+1. **Internal APIs**
+   - Follow established API patterns
+   - Document API changes
+   - Version APIs appropriately
+
+2. **External Integrations**
+   - Implement adapter pattern for external services
+   - Document integration points and requirements
+
+## Project Management
+
+1. **Feature Development**
+   - Document feature specifications before implementation
+   - Update documentation during development
+   - Track progress in project management tool
+
+2. **Code Review Guidelines**
+   - Review for code quality, maintainability, and performance
+   - Ensure documentation is updated
+   - Verify tests are written and passing
+
+## Specific Rules for Cursor
+
+1. **Code Generation**
+   - When generating code, always check if similar functionality exists first
+   - Reference existing patterns and approaches before creating new ones
+   - Generate documentation simultaneously with code
+   
+2. **Refactoring**
+   - Always update related documentation when refactoring code
+   - Ensure tests are updated to match refactored code
+   - Document the reason for significant refactorings
+
+3. **File Creation**
+   - When creating a new component, service, or feature:
+     - Create the implementation file
+     - Create or update the corresponding test file
+     - Create or update the documentation file
+     - Update any index files for exports
+
+4. **Pattern Recognition**
+   - Recognize and follow established patterns in the codebase
+   - Suggest improvements to patterns when appropriate
+   - Document pattern usage in `/docs/patterns/`
+
+5. **Reuse Enforcement**
+   - Before implementing new functionality, search the codebase for similar existing code
+   - Prefer extending existing utilities over creating new ones
+   - Document reusable utilities in `/docs/utils/`
+
+6. **Documentation Generation**
+   - For each significant piece of code generated, create a corresponding documentation file
+   - Update the API documentation when modifying endpoints
+   - Generate usage examples for reusable components and utilities
+
+7. **Dependency Management**
+   - Document dependencies used and their purpose
+   - Consider bundle size when adding new dependencies
+   - Prefer internal solutions over adding new dependencies when reasonable
+
+8. **Feature Tracking**
+   - Maintain a feature development log in `/docs/features/`
+   - Update feature status when making significant changes
+   - Document known limitations and future improvements
+
+## Process Guidelines
+
+1. **Systematic Development**
+   - Develop in a logical order: models -> services -> controllers -> UI
+   - Document the development process for complex features
+   - Create end-to-end examples for significant functionality
+
+2. **Framework Consistency**
+   - Follow Next.js best practices for frontend
+   - Follow NestJS best practices for backend
+   - Document framework-specific patterns and approaches
+
+3. **Documentation First**
+   - Start feature development by writing specification documentation
+   - Update documentation as the implementation evolves
+   - Ensure documentation remains accurate after changes

@@ -1,0 +1,26 @@
+{
+  "name": "@eventsplatform/plugin-service-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "implicitDependencies": [
+      "@eventsplatform/plugin-service"
+    ],
+    "targets": {
+      "e2e": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/plugin-service-e2e/jest.config.ts",
+          "passWithNoTests": true
+        },
+        "dependsOn": [
+          "@eventsplatform/plugin-service:build",
+          "@eventsplatform/plugin-service:serve"
+        ]
+      }
+    }
+  }
+}
